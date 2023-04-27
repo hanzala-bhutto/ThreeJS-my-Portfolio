@@ -5,6 +5,7 @@ import {styles} from '../styles';
 import {EarthCanvas} from './canvas';
 import {SectionWrapper} from '../hoc';
 import { slideIn } from '../utils/motion';
+import { setQuaternionFromProperEuler } from 'three/src/math/MathUtils';
 
 const Contact = () => {
   const formRef = useRef();
@@ -15,9 +16,44 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    const {name,value} = e.target;
 
-  const handleSubmit = (e) => {}
+    setForm({...form,[name]:value});
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs.send(
+      'service_yuqfd6p',
+      'template_b0fcdyk',
+      {
+        from_name: form.name,
+        to_name: 'Hanzala',
+        from_email: form.email,
+        to_email: 'bhutto.hanzala@gmail.com',
+        message: form.message,
+      },
+      "k7k8oewXLwW9eHUxF"
+    ).then(() => {
+      setLoading(false);
+      alert("Message Sent!");
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      })
+
+    }, (error) => {
+      setLoading(false);
+      console.log(error);
+      alert("Error Sending Message!");
+    }
+    )
+  }
 
   return (
     <div className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
