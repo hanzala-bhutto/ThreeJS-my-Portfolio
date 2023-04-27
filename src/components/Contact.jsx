@@ -39,7 +39,7 @@ const Contact = () => {
       "k7k8oewXLwW9eHUxF"
     ).then(() => {
       setLoading(false);
-      alert("Message Sent!");
+      alert("ThankYou! I will get back to you as soon as possible.");
 
       setForm({
         name: "",
