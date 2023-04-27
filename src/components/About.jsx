@@ -42,7 +42,7 @@ const About = () => {
         variants={fadeIn("","",0.1,1)}
         className='mt-4 text-secondary text-[17px] leading-[30px]'
       >
-        I am a full stack developer with a passion for creating beautiful and functional web applications. I have a strong background in computer science and mathematics, and I am always looking for new ways to improve my skills and learn new technologies. I am currently working as a software engineer at <a href="https://www.3dlook.com/" target="_blank" rel="noreferrer">3DLOOK</a>, where I am responsible for developing and maintaining the company's web applications.
+        I am a full stack developer with a passion for creating beautiful and functional web applications. I have a strong background in computer science and mathematics, and I am always looking for new ways to improve my skills and learn new technologies.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
